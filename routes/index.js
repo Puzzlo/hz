@@ -11,4 +11,5 @@ module.exports = function (app) {
     app.get('/registration', function(req, res) {
         res.render('registration');
     });
+    app.post('/registration', require('./registration').post);
 };

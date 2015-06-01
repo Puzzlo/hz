@@ -9,17 +9,17 @@ body {
     background-color: #9fdefd;
 }
 
-#loginContainer {
+#loginContainer, #regContainer {
     width: 40%;
     margin: 100px auto;
-    border: 1px solid darkblue;
+    /*border: 1px solid darkblue;*/
 }
 
 .newLine {
     clear: both;
 }
 
-.loginForm_input {
+.loginForm_input, #regForm_input {
     padding: 4px;
     margin-bottom: 9px;
     font-size: 13px;
@@ -29,7 +29,7 @@ body {
     border: 1px solid #ccc;
 }
 
-.loginForm_input:focus {
+.loginForm_input:focus, #regForm_input {
     box-shadow: 0.4em 0.4em 5px rgba(122, 122, 122, 0.5);
     border: 1px solid #46cfd2;
 }
