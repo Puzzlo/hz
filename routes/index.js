@@ -1,5 +1,7 @@
 //      index routes
 
+var AM = require('public/js/account-manager');
+
 module.exports = function (app) {
     app.get('/', function(req, res) {
         res.render('index');
