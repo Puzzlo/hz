@@ -1,19 +1,16 @@
 //      registration
-var mongoose = require('lib/mongoose.js');
-var AM = require('public/js/account-manager');
 
+var mongo = require('../public/js/mongoConnect');
+var users = require('../public/js/users').Users;
 
 exports.post = function (req, res) {
     var name = req.body.regUser,
-        pass = req.body.regPass;
-    //console.log('name=' + JSON.stringify(req.body));
-    //console.log('name = ' + name + ', pass = ' + pass);
-    AM.addNewAccount({name: name, pass: pass
-    }, function(error) {
-        if(error) res.render('error', {errorText: error});
-            else res.render('/');
-        }
-
-    );
-
+        pass = req.body.regPass,
+        mess = 'Извините, пользователь с таким именем уже существует.'
+            + '<br/>'
+            +  'Попробуйте придумать новый псевдоним';
+    console.log('name=' + JSON.stringify(req.body));
+    var user = users.addUser(name, pass, function (err, pers) {
+        if(err) throw err;
+    })
 };

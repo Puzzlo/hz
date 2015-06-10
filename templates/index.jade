@@ -1,39 +1,12 @@
-//
-   Created by esskov on 29.05.2015.
+// index.jade
 
 doctype html
 html
     head
         title hz
         meta(charset="utf-8")
-        link(rel="stylesheet", href="css/bootstrap.min.css")
         link(rel="stylesheet", href="css/style.css")
     body
-        //.menu
-        //    .menu_home
-        //        a(href='/') home
-        //    .menu_chat
-        //        a(href='/chat') in chat
-        //    .menu_empty
-        //    .menu_registration
-        //        a(href='/registration') registration
-        #loginContainer
-            form( method="post")#loginForm.well.span4
-                h1 Hello!
-                p.subheading Please Login To Your Account
-                .form-group
-                    label(for="user") Username
-                    input(type="text", name="user", id="user").span4.required.form-control
-                .form-group
-                    label(for='pass') Password
-                    input(type="password", name="pass", id='pass').span4.required.form-control
-                .form-group
-                    button(type="submit")#btnLogin.btn.btn-primary
-                        | Sign in
-                    label#rememberMe.checkbox Remember Me
-                        input(type="checkbox", checked='checked')#rememberMe
-                div.clear-fix
-                hr
-                div.btm-links
-                    //a(href='#')#forgot-password Forgot Your Password?
-                    a(href='/registration')#createAccount Create An Account
+        a(href='#') login
+        a(href='/registration') registration
+
