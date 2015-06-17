@@ -1,0 +1,27 @@
+//
+   Created by esskov on 17.06.2015.
+
+doctype html
+html
+    head
+        title Login
+        meta(charset="utf-8")
+        link(rel="stylesheet", href="css/bootstrap.min.css")
+        link(rel="stylesheet", href="css/style.css")
+        script(src='/js/jquery.min.js')
+        script(src='/js/bootstrap.min.js')
+    body
+        #loginContainer
+            form( method="post")#loginForm_input.well.span6
+                h1
+                p#sub1.subheading Please tell us a little about yourself,<br />
+                    | un peu name & un peu password
+                hr
+                .form-group
+                    label(for="loginUser") Username
+                    input(type="text", name="loginUser", id="loginUser").span4.required.form-control
+                .form-group
+                    label(for='loginPass') Password
+                    input(type="password", name="loginPass", id='loginPass').span4.required.form-control
+                .form-group
+                    button(type='submit').btn.btn-default Zалогиниться - и в чат

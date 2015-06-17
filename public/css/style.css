@@ -9,6 +9,10 @@ body {
     background-color: #9fdefd;
 }
 
+a {
+    margin: 30px;
+}
+
 #loginContainer, #regContainer {
     width: 40%;
     margin: 100px auto;

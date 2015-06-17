@@ -12,4 +12,10 @@ module.exports = function (app) {
         res.render('registration');
     });
     app.post('/registration', require('./registration').post);
+
+    app.get('/login', function (req, res) {
+        res.render('login');
+    })
+    app.post('/login', require('./login').post);
 };
+

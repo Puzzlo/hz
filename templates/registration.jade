@@ -1,11 +1,15 @@
 //
    Created by esskov on 29.05.2015.
+
 doctype html
 html
     head
         title hz
         meta(charset="utf-8")
+        link(rel="stylesheet", href="css/bootstrap.min.css")
         link(rel="stylesheet", href="css/style.css")
+        script(src='/js/jquery.min.js')
+        script(src='/js/bootstrap.min.js')
     body
         #regContainer
             form( method="post")#regForm_input.well.span6
@@ -19,6 +23,5 @@ html
                     label(for='regPass') Password
                     input(type="password", name="regPass", id='regPass').span4.required.form-control
                 .form-group
-                    button(type='button').btn.btn-default Отказаться
-                    hr
-                    button(type='submit').btn.btn-primary Submit
+                    button(type='submit').btn.btn-primary.pull-left Зарегистрироваться
+                    button(type='button').btn.btn-default.pull-right Отказаться
