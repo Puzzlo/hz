@@ -12,12 +12,6 @@ html
         script(src='/js/jquery.min.js')
         script(src='/js/bootstrap.min.js')
     body
-        .modal.fade#modalError
-            .modal-dialog
-                .modal-content
-                    .modal-header
-                        .h3.modal-title Случилась ошибка
-                    .modal-body
-                        p #{errorText}, турдитесь
-                    .modal-footer
-                        button.btn.btn-danger(data-dismiss="modal") Понятно, щас исправлюсь
+        p #{errorText}, турдитесь
+        a(href='/login') login
+        a(href='/registration') registration
