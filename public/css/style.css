@@ -23,6 +23,9 @@ a {
     clear: both;
 }
 
+a {
+    margin: 30px;
+}
 .loginForm_input, #regForm_input {
     padding: 4px;
     margin-bottom: 9px;

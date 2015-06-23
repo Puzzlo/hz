@@ -13,7 +13,15 @@ function Users(db) {
         // Create user document
         var user = {'_id': name, 'password': password_hash};
 
-        callback(null, user);
+        users.insert(user, function (err, result) {
+           if(err) {
+               console.log('Ошибка вставки нового юзера');
+               return callback(err, null);
+           }
+            return callback(null, result[0]);
+        });
+
+        //callback(null, user);
     }
 
 }
