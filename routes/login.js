@@ -7,9 +7,10 @@ var mongo = require('mongodb').MongoClient;
 exports.post = function (req, res) {
     //res.render('error');
     console.log(' in post login ');
+    console.log('params in login is: ' + JSON.stringify(req.body));
+    //console.log('params in login is: ' + console.log(req));
     var name = req.body.loginUser
         , pass = req.body.loginPass;
-    console.log('params in login is: ' + JSON.stringify(req.body));
 
     mongo.connect('mongodb://localhost/akuraChat', function (err, db) {
         if (err) throw err;
@@ -28,6 +29,8 @@ exports.post = function (req, res) {
                 bcrypt.compare(pass, user.password, function (err, result) {
                     if ( err ) throw err;
                     if(result) {
+                        console.log('sended cookie='+user.username);
+                        res.cookie('nameOfUser', user.username, { });// httpOnly: true
                         res.redirect('chat');
                     } else {
                         res.render('error', {errorText: JSON.stringify(user)});
