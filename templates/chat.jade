@@ -2,9 +2,9 @@
 doctype
 html
     head
-        title = "Akucha"
-        script(src = 'chat.js')
-        script(src = '/socket.io/socket.io.js')
+        title Akucha
+        script(src="/socket.io/socket.io.js")
+        //script(src="https://cdn.socket.io/socket.io-1.2.0.js")
         style
             include ../public/css/style.css
     body
@@ -21,3 +21,5 @@ html
         #confirmSended
         #confirmReceived
         #private
+        script
+            include ../routes/chat.js

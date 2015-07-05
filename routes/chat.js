@@ -1,7 +1,7 @@
 /**
  * Created by esskov on 15.04.2015.
  */
-var socket;
+var socket = io.connect('http://localhost:3000');
 var messages = [];
 var privateMessages = [];
 var messagesWithConfirm = [];
@@ -11,8 +11,7 @@ var users = {};
 
 window.onload = function() {
     //jQuery(function($) {$(':checkbox').checkboxpicker();});
-    //socket = io.connect('http://localhost:3000');
-    socket = io.connect('192.168.0.67:3000');
+    socket = io.connect('http://localhost:3000');
 
     //run_cmd( "whoami", [], function(text) { console.log (text); alert(text); });
 
@@ -24,10 +23,20 @@ window.onload = function() {
     document.getElementById('confirmSended').innerHTML = confirmSended;
 
     // переделать на нормальный вход в чат :
-    if(!name){
-        var name = prompt('Ваше имя : ', 'Annabelle');
-        socket.emit('hello', {name: name});
-    }
+    //if(!name){
+    //    var name = prompt('Ваше имя : ', 'Annabelle');
+    //    socket.emit('hello', {name: name});
+    //}
+    //var xxy = document.cookie;
+    //console.log('kuki='+xxy);
+    var name = getCookie('nameOfUser');
+    socket.emit('hello', {name: name});
+    //var name22 = getCookie(nameOfUser);
+    //console.log('name_quot='+name11);
+    if( name == undefined ) {
+        alert(1);
+        window.location.href = '/login';
+    } else alert(name);
 
     // сообщения при входе в чат вошедшему, остальным что он пришёл
     socket.on('simpleMessage', function(data){
@@ -224,3 +233,10 @@ function run_cmd(cmd, args, callBack ) {
     //child.stdout.on('end', function() { callBack (resp) });
 } // ()
 
+// возвращает cookie с именем name, если есть, если нет, то undefined
+function getCookie(name) {
+    var matches = document.cookie.match(new RegExp(
+        "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+    ));
+    return matches ? decodeURIComponent(matches[1]) : undefined;
+}
