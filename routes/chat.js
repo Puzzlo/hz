@@ -36,7 +36,7 @@ window.onload = function() {
     if( name == undefined ) {
         alert(1);
         window.location.href = '/login';
-    } else alert(name);
+    }  // else alert(name);
 
     // сообщения при входе в чат вошедшему, остальным что он пришёл
     socket.on('simpleMessage', function(data){
@@ -54,7 +54,7 @@ window.onload = function() {
         var html = '<table>';
         html += '<tr><td>Имя</td><td>Отослать</td><td>С подтверждением</td><tr>';
         for ( var user in data ) {
-            html += '<tr><td>' + data[user].name + '</td>'
+            html += '<tr><td>' + data[user] + '</td>'
             +'<td>'+'<input type="checkbox" '
             //+'onchange="changePrivate();">'+'</td>'
             +'onchange="changePrivateRecipients(\''+data[user].id + '\');">'+'</td>'

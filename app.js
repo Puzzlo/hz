@@ -31,3 +31,18 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 //var server = app.listen(config.get('port'));
 var server = http.listen(config.get('port'));
+
+
+var users = {};
+
+io.sockets.on('connection', function (client) {
+
+    client.on('hello', function (data) {
+        client.emit('simpleMessage', {message: 'Привет, ' + data.name + ', мы тебя ждали'});
+        client.broadcast.emit('simpleMessage', {message: 'К нам присоединился ' + data.name});
+        users[data.name] = data.name;
+        io.sockets.emit('drawUsers', users);
+        console.log(users);
+    })
+
+});
